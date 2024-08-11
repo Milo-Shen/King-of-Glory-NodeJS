@@ -1,52 +1,15 @@
 // Import React Framework
 import React from 'react';
+import { createBrowserRouter, RouterProvider, Link } from 'react-router-dom';
 
-// Import Ant-Design
-import { Menu } from 'antd';
-import { MailOutlined } from '@ant-design/icons';
+// Import Pages
+import Home from './Pages/Home/Home.tsx';
 
-// Export Types
-import type { MenuProps } from 'antd';
-
-// Import CSS
-import './App.css';
-
-type MenuItem = Required<MenuProps>['items'][number];
-
-const items: MenuItem[] = [
+const router = createBrowserRouter([
   {
-    key: 'sub1',
-    label: '内容管理',
-    icon: <MailOutlined />,
-    children: [
-      {
-        key: 'g1',
-        label: '分类',
-        type: 'group',
-        children: [
-          { key: '1', label: '新建分类' },
-          { key: '2', label: '内容列表' },
-        ],
-      },
-    ],
+    path: '/',
+    element: <Home />,
   },
-];
+]);
 
-const App: React.FC = () => {
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-  };
-
-  return (
-    <Menu
-      onClick={onClick}
-      style={{ width: 256 }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      mode="inline"
-      items={items}
-    />
-  );
-};
-
-export default App;
+export default () => <RouterProvider router={router} />;
