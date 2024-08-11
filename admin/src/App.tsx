@@ -8,6 +8,9 @@ import { MailOutlined } from '@ant-design/icons';
 // Export Types
 import type { MenuProps } from 'antd';
 
+// Import CSS
+import './App.css';
+
 type MenuItem = Required<MenuProps>['items'][number];
 
 const items: MenuItem[] = [
