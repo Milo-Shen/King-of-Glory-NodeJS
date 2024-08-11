@@ -1,17 +1,19 @@
 // Import React Framework
 import React from 'react';
-import {
-  createHashRouter,
-  RouterProvider,
-  createRoutesFromElements,
-  Route,
-} from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 // Import Pages
 import Home from './Pages/Home/Home.tsx';
 
-const router = createHashRouter(
-  createRoutesFromElements(<Route path="/" element={<Home />}></Route>),
-);
+const router = createHashRouter([
+  {
+    path: '/categories/:type',
+    element: <Home />,
+  },
+  {
+    path: '/',
+    element: <Home />,
+  },
+]);
 
 export default () => <RouterProvider router={router} />;

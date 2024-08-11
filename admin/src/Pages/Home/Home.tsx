@@ -5,12 +5,16 @@ import React from 'react';
 import { Menu } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
 
+// Import Components
+import CreateCategory from './Components/CreateCategory';
+
 // Export Types
 import type { MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 // Import Styles
+import style from './Home.module.css';
 
 const items: MenuItem[] = [
   {
@@ -38,17 +42,19 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <div>
+      <div className={style.leftPanel}>
         <Menu
           onClick={onClick}
-          style={{ width: 256 }}
+          style={{ width: '100%' }}
           defaultSelectedKeys={['1']}
           defaultOpenKeys={['sub1']}
           mode="inline"
           items={items}
         />
       </div>
-      <div>right side panel</div>
+      <div className={style.rightPanel}>
+        <CreateCategory />
+      </div>
     </>
   );
 };
