@@ -6,7 +6,7 @@ import { Menu } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
 
 // Import Components
-import CreateCategory from './Components/CreateCategory';
+import CategoryLoader from './CategoryLoader.tsx';
 
 // Export Types
 import type { MenuProps } from 'antd';
@@ -36,6 +36,7 @@ const items: MenuItem[] = [
 ];
 
 const Home: React.FC = () => {
+  // event handlers
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
   };
@@ -53,7 +54,7 @@ const Home: React.FC = () => {
         />
       </div>
       <div className={style.rightPanel}>
-        <CreateCategory />
+        <CategoryLoader />
       </div>
     </>
   );
