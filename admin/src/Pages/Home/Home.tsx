@@ -10,6 +10,8 @@ import type { MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
+// Import Styles
+
 const items: MenuItem[] = [
   {
     key: 'sub1',
@@ -35,14 +37,19 @@ const Home: React.FC = () => {
   };
 
   return (
-    <Menu
-      onClick={onClick}
-      style={{ width: 256 }}
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      mode="inline"
-      items={items}
-    />
+    <>
+      <div>
+        <Menu
+          onClick={onClick}
+          style={{ width: 256 }}
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode="inline"
+          items={items}
+        />
+      </div>
+      <div>right side panel</div>
+    </>
   );
 };
 
