@@ -1,11 +1,48 @@
-import './App.css';
+// Import React Framework
+import React from 'react';
 
-const App = () => {
+// Import Ant-Design
+import { Menu } from 'antd';
+import { MailOutlined } from '@ant-design/icons';
+
+// Export Types
+import type { MenuProps } from 'antd';
+
+type MenuItem = Required<MenuProps>['items'][number];
+
+const items: MenuItem[] = [
+  {
+    key: 'sub1',
+    label: '内容管理',
+    icon: <MailOutlined />,
+    children: [
+      {
+        key: 'g1',
+        label: '分类',
+        type: 'group',
+        children: [
+          { key: '1', label: '新建分类' },
+          { key: '2', label: '内容列表' },
+        ],
+      },
+    ],
+  },
+];
+
+const App: React.FC = () => {
+  const onClick: MenuProps['onClick'] = (e) => {
+    console.log('click ', e);
+  };
+
   return (
-    <div className="content">
-      <h1>Rsbuild with React</h1>
-      <p>Start building amazing things with Rsbuild.</p>
-    </div>
+    <Menu
+      onClick={onClick}
+      style={{ width: 256 }}
+      defaultSelectedKeys={['1']}
+      defaultOpenKeys={['sub1']}
+      mode="inline"
+      items={items}
+    />
   );
 };
 
