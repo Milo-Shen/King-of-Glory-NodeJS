@@ -1,5 +1,5 @@
 // Import React Framework
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 const CategoryLoader = () => {
@@ -7,7 +7,7 @@ const CategoryLoader = () => {
   const { type } = useParams();
 
   // Hooks
-  const [module, set_module] = useState<React.FC>();
+  const [module, set_module] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
